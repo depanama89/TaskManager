@@ -10,11 +10,24 @@
     <header class="header">
       <nav class="header__nav">
         <div class="header__nav__logo">
-          <img
-            src="./assets/img/humberger.png"
-            alt="menu"
-            class="header__nav__logo-img"
-          />
+          <div class="header__nav__logo__div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu header__nav__logo-hover"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </div>
           <span class="header__nav__logo-span">TaskManager</span>
         </div>
         <div class="header__nav__profil">
@@ -28,20 +41,22 @@
     </header>
     <main class="main">
       <aside class="main__aside">
-        <menu>
-          <li>
+        <menu class="main__aside__lists">
+          <li class="main__aside__lists__item main__aside_lists__item-active">
             <img src="./assets/img/plus.png" alt="" /><a href="#">créer</a>
           </li>
-          <li>
-            <img src="./assets/img/home.png" alt="" /><a href="#">Accueil</a>
+          <li class="main__aside__lists__item">
+            <img src="./assets/img/home.png" alt="icon menu" /><a href="#"
+              >Accueil</a
+            >
           </li>
-          <li>
-            <img src="./assets/img/check.png" alt="" /><a href="#"
+          <li class="main__aside__lists__item">
+            <img src="./assets/img/check.png" alt="icon menu" /><a href="#"
               >Mes tâches</a
             >
           </li>
-          <li>
-            <img src="./assets/img/mdi_bell.png" alt="" /><a href="#"
+          <li class="main__aside__lists__item">
+            <img src="./assets/img/mdi_bell.png" alt="icon menu" /><a href="#"
               >Boîte de recéption</a
             >
           </li>
@@ -79,17 +94,132 @@
               alt="profil"
               class="main__section__widgets__head-img"
             />
-            <ul class="main__section__widgets__head__lists">
-              <li>A venir</li>
-              <li>En retard</li>
-              <li>Terminée</li>
-            </ul>
+            <div class="main__section__widgets__body">
+              <h2 class="main__section__widgets__body-title">Mes Tâches</h2>
+              <ul class="main__section__widgets__head__lists">
+                <li class="main__section__widgets__head__lists-list">
+                  A venir
+                </li>
+                <li class="main__section__widgets__head__lists-list">
+                  En retard
+                </li>
+                <li class="main__section__widgets__head__lists-list">
+                  Terminée
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="main__section__widgets__taches">
             <span class="main__section__widgets__taches-new"
-              ><img src="./assets/img/icplus.png" alt="" />Créer</span
+              ><img
+                src="./assets/img/icplus.png"
+                alt="plus"
+                class="main__section__widgets__taches-new-img"
+              />Créer</span
             >
             <ul class="main__section__widgets__taches__lists"></ul>
+          </div>
+        </div>
+        <div class="main__section__modal" id="main__section__modal">
+          <div class="main__section__modal__container">
+            <div class="main__section__modal__container__head">
+              <span class="main__section__modal__container__head-label"
+                >Nouvelle tâche</span
+              >
+              <div class="main__section__modal__container__span">
+                <span id="hidden" class="hidden"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-minus"
+                  >
+                    <path d="M5 12h14" /></svg
+                ></span>
+                <span id="close"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-x"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" /></svg
+                ></span>
+              </div>
+            </div>
+            <form class="main__section__modal__container__form">
+              <div class="main__section__modal__container__form__input">
+                <input
+                  type="text"
+                  name="tache"
+                  id="titleTache"
+                  placeholder="Nom de tâche"
+                  class="inputTache"
+                />
+              </div>
+              <div class="main__section__modal__container__form__input">
+                <label for="categorie">Categories</label>
+                <select
+                  name="categories"
+                  id="categories"
+                  class="inputCategories"
+                >
+                  <option value="">Test</option>
+                </select>
+              </div>
+              <div class="main__section__modal__container__form__input">
+                <label>Pour :</label>
+                <span>Patrick</span>
+              </div>
+              <div class="main__section__modal__container__form__input">
+                <label for="priorite">Priorite</label>
+                <select name="priorite" id="priorite" class="inputPriorite">
+                  <option value="">Haut</option>
+                  <option value="">Moyen</option>
+                  <option value="">Bas</option>
+                </select>
+              </div>
+              <div class="main__section__modal__container__form__input">
+                <textarea
+                  name="description"
+                  id=""
+                  rows="10"
+                  cols="50"
+                ></textarea>
+              </div>
+              <div class="main__section__modal__container__form__btn">
+                <div class="main__section__modal__container__form__input__left">
+                  <img src="assets/img/icplus.png" alt="" />
+                </div>
+                <div
+                  class="main__section__modal__container__form__input__right"
+                >
+                  <button
+                    type="submit"
+                    class="main__section__modal__container__form__btn-btn"
+                  >
+                    <img
+                      src="./assets/img/plus.png"
+                      alt="create img"
+                      class="main__section__modal__container__form__btn-img"
+                    />Créer une tâche
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
