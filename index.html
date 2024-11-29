@@ -42,11 +42,16 @@
     <main class="main">
       <aside class="main__aside">
         <menu class="main__aside__lists">
-          <li class="main__aside__lists__item main__aside_lists__item-active">
+          <li
+            class="main__aside__lists__item main__aside_lists__item-active"
+            id="newCreateTask"
+          >
             <img src="./assets/img/plus.png" alt="" /><a href="#">créer</a>
           </li>
           <li class="main__aside__lists__item">
-            <img src="./assets/img/home.png" alt="icon menu" /><a href="#"
+            <img src="./assets/img/home.png" alt="icon menu" /><a
+              href="#"
+              id="acceuil"
               >Accueil</a
             >
           </li>
@@ -160,7 +165,7 @@
                 ></span>
               </div>
             </div>
-            <form class="main__section__modal__container__form">
+            <form class="main__section__modal__container__form" id="addNewTask">
               <div class="main__section__modal__container__form__input">
                 <input
                   type="text"
@@ -177,27 +182,31 @@
                   id="categories"
                   class="inputCategories"
                 >
-                  <option value="">Test</option>
+                  <option value="Personnel">Personnel</option>
+                  <option value="Creer hamburger menu">
+                    Creer hamburger menu"
+                  </option>
                 </select>
               </div>
               <div class="main__section__modal__container__form__input">
                 <label>Pour :</label>
-                <span>Patrick</span>
+                <span id="userValue">Patrick</span>
               </div>
               <div class="main__section__modal__container__form__input">
                 <label for="priorite">Priorite</label>
-                <select name="priorite" id="priorite" class="inputPriorite">
-                  <option value="">Haut</option>
-                  <option value="">Moyen</option>
-                  <option value="">Bas</option>
+                <select name="priorite" id="priorities" class="inputPriorite">
+                  <option value="haut">Haut</option>
+                  <option value="moyen">Moyen</option>
+                  <option value="bas">Bas</option>
                 </select>
               </div>
               <div class="main__section__modal__container__form__input">
                 <textarea
                   name="description"
-                  id=""
                   rows="10"
                   cols="50"
+                  id="descriptions"
+                  class="description"
                 ></textarea>
               </div>
               <div class="main__section__modal__container__form__btn">
@@ -210,6 +219,7 @@
                   <button
                     type="submit"
                     class="main__section__modal__container__form__btn-btn"
+                    id="createTask"
                   >
                     <img
                       src="./assets/img/plus.png"

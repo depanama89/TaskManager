@@ -95,7 +95,7 @@
     background-color: #3d3e40;
   }
   .main__section__modal {
-    display: flex;
+    display: none;
   }
   .main__aside__lists__item {
     display: flex;
