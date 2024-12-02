@@ -117,7 +117,43 @@
             />
             <div class="main__section__widgets__body">
               <h2 class="main__section__widgets__body-title">Mes Tâches</h2>
-              <ul class="main__section__widgets__head__lists">
+              <div class="tab-nav">
+                <button class="tab-btn" onclick="openTab(event,'tab1')">
+                  A venir
+                </button>
+                <button class="tab-btn" onclick="openTab(event,'tab2')">
+                  En retard
+                </button>
+                <button class="tab-btn" onclick="openTab(event,'tab3')">
+                  Terminée(s)
+                </button>
+              </div>
+              <div class="tab-content active" id="tab1">
+                <span class="main__section__widgets__taches-new" id="taskNewbtn"
+                  ><img
+                    src="./assets/img/icplus.png"
+                    alt="plus"
+                    class="main__section__widgets__taches-new-img"
+                  />Créer</span
+                >
+                <ul
+                  class="main__section__widgets__taches__lists"
+                  id="listTaches"
+                ></ul>
+              </div>
+              <div class="tab-content" id="tab2">
+                <ul
+                  class="main__section__widgets__taches__lists"
+                  id="listTaches"
+                ></ul>
+              </div>
+              <div class="tab-content" id="tab3">
+                <ul
+                  class="main__section__widgets__taches__lists"
+                  id="listTaches"
+                ></ul>
+              </div>
+              <!-- <ul class="main__section__widgets__head__lists">
                 <li
                   class="main__section__widgets__head__lists-list"
                   id="aVenirID"
@@ -139,10 +175,10 @@
                 >
                   Terminée
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
-          <div class="main__section__widgets__taches">
+          <!-- <div class="main__section__widgets__taches">
             <span class="main__section__widgets__taches-new" id="taskNewbtn"
               ><img
                 src="./assets/img/icplus.png"
@@ -154,7 +190,7 @@
               class="main__section__widgets__taches__lists"
               id="listTaches"
             ></ul>
-          </div>
+          </div> -->
         </div>
         <div class="main__section__modal" id="main__section__modal">
           <div class="main__section__modal__container">
