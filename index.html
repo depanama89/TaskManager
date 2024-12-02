@@ -67,7 +67,23 @@
           </li>
         </menu>
         <div class="main__aside__category">
-          <span>Categories</span><img src="./assets/img/icplusw.png" alt="" />
+          <span>Categories</span
+          ><img
+            src="./assets/img/icplusw.png"
+            alt="plus"
+            class="main__aside__category-img"
+            id="addNewcategory"
+          />
+          <div class="main__aside__category__modal" id="modalCategory">
+            <div class="main__aside__category__modal__container">
+              <img
+                src="assets/img/cat.png"
+                alt="cat"
+                class="main__aside__category__modal__container__addCategory-img"
+              />
+              <span>New</span>
+            </div>
+          </div>
         </div>
       </aside>
       <section class="main__section">
@@ -102,27 +118,42 @@
             <div class="main__section__widgets__body">
               <h2 class="main__section__widgets__body-title">Mes Tâches</h2>
               <ul class="main__section__widgets__head__lists">
-                <li class="main__section__widgets__head__lists-list">
-                  A venir
+                <li
+                  class="main__section__widgets__head__lists-list"
+                  id="aVenirID"
+                  data-v="0"
+                >
+                  A venir <span class="countNew"></span>
                 </li>
-                <li class="main__section__widgets__head__lists-list">
+                <li
+                  class="main__section__widgets__head__lists-list"
+                  id="eRetardID"
+                  data-re="1"
+                >
                   En retard
                 </li>
-                <li class="main__section__widgets__head__lists-list">
+                <li
+                  class="main__section__widgets__head__lists-list"
+                  id="terminerID"
+                  data-end="2"
+                >
                   Terminée
                 </li>
               </ul>
             </div>
           </div>
           <div class="main__section__widgets__taches">
-            <span class="main__section__widgets__taches-new"
+            <span class="main__section__widgets__taches-new" id="taskNewbtn"
               ><img
                 src="./assets/img/icplus.png"
                 alt="plus"
                 class="main__section__widgets__taches-new-img"
               />Créer</span
             >
-            <ul class="main__section__widgets__taches__lists"></ul>
+            <ul
+              class="main__section__widgets__taches__lists"
+              id="listTaches"
+            ></ul>
           </div>
         </div>
         <div class="main__section__modal" id="main__section__modal">
