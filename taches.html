@@ -56,8 +56,7 @@
             >
           </li>
           <li class="main__aside__lists__item">
-            <img src="./assets/img/check.png" alt="icon menu" /><a
-              href="./taches.html"
+            <img src="./assets/img/check.png" alt="icon menu" /><a href="#"
               >Mes tâches</a
             >
           </li>
@@ -88,111 +87,21 @@
         </div>
       </aside>
       <section class="main__section">
-        <h1 class="main__section-h1">Acceuil</h1>
-        <div class="main__section__nav">
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Tâches Prioritaire</span
-            >
-          </div>
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Tâches Términées</span
-            >
-          </div>
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Collaborateurs</span
-            >
-          </div>
-        </div>
-        <div class="main__section__widgets">
-          <div class="main__section__widgets__head">
-            <img
-              src="assets/img/user-avatar.png"
-              alt="profil"
-              class="main__section__widgets__head-img"
-            />
-            <div class="main__section__widgets__body">
-              <h2 class="main__section__widgets__body-title">Mes Tâches</h2>
-              <div class="tab-nav">
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab1',id=0)"
-                  data-id="0"
-                >
-                  A venir
-                </button>
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab2',id=1)"
-                  data-id="1"
-                >
-                  En retard
-                </button>
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab3',id=2)"
-                  data-id="2"
-                >
-                  Terminée(s)
-                </button>
-              </div>
-              <div class="tab-content" id="tab1">
-                <span class="main__section__widgets__taches-new" id="taskNewbtn"
-                  ><img
-                    src="./assets/img/icplus.png"
-                    alt="plus"
-                    class="main__section__widgets__taches-new-img"
-                  />Créer</span
-                >
-                <ul
-                  class="main__section__widgets__taches__lists"
-                  id="listTaches"
-                ></ul>
-              </div>
+        <h1 class="main__section-h1">Mes Tâches</h1>
 
-              <!-- <ul class="main__section__widgets__head__lists">
-                <li
-                  class="main__section__widgets__head__lists-list"
-                  id="aVenirID"
-                  data-v="0"
-                >
-                  A venir <span class="countNew"></span>
-                </li>
-                <li
-                  class="main__section__widgets__head__lists-list"
-                  id="eRetardID"
-                  data-re="1"
-                >
-                  En retard
-                </li>
-                <li
-                  class="main__section__widgets__head__lists-list"
-                  id="terminerID"
-                  data-end="2"
-                >
-                  Terminée
-                </li>
-              </ul> -->
+        <div class="main__section__widgets">
+          <div class="main__section__widgets__body">
+            <div class="main__section__widgets__body__menu">
+              <div class="main__section__widgets__body__menu__btn">
+                <button type="button">Ajouter Tâches</button>
+              </div>
+              <ul class="main__section__widgets__body__menu__lists">
+                <li>Filtre</li>
+                <li>Tri</li>
+                <li></li>
+              </ul>
             </div>
           </div>
-          <!-- <div class="main__section__widgets__taches">
-            <span class="main__section__widgets__taches-new" id="taskNewbtn"
-              ><img
-                src="./assets/img/icplus.png"
-                alt="plus"
-                class="main__section__widgets__taches-new-img"
-              />Créer</span
-            >
-            <ul
-              class="main__section__widgets__taches__lists"
-              id="listTaches"
-            ></ul>
-          </div> -->
         </div>
         <div class="main__section__modal" id="main__section__modal">
           <div class="main__section__modal__container">

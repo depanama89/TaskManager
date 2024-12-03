@@ -5,6 +5,7 @@ const titleTache = document.getElementById("titleTache");
 const categories = document.getElementById("categories");
 const userValue = document.getElementById("userValue");
 const priorities = document.getElementById("priorities");
+let statusv = document.getElementById("status");
 const descriptions = document.getElementById("descriptions");
 const createTask = document.getElementById("createTask");
 const addNewTask = document.getElementById("addNewTask");
@@ -21,9 +22,8 @@ const terminerID = document.getElementById("terminerID");
 const listMenu = document.querySelectorAll(
   ".main__section__widgets__head__lists-list"
 );
-console.log(listMenu);
 
-let statusv = 0;
+statusv = 0;
 closeForm.addEventListener("click", function (e) {
   mainSectionModal.style.display = "none";
 });
@@ -38,22 +38,18 @@ function getFromLocalstorage(key, defaultValue = []) {
 
 // recherche tâche
 
-// aVenir.addEventListener("click", function () {
-//   const value = aVenir.dataset.v;
-//   rechercheTache(value);
-// });
+function rechercheTache(value) {
+  const tasks = getFromLocalstorage("tasks");
+  // let findItems = [];
+  const findItems = tasks.filter((tache) => tache.statusv == value);
 
-// function rechercheTache(value) {
-//   const search = getFromLocalstorage("tasks");
-//   let findItems = [];
-//   findItems = search.find((tache) => tache.statusv == value);
-//   displayTasks(findItems);
-// }
+  displayTasks(findItems);
+}
 
 function displayTasks(value) {
-  const search = getFromLocalstorage("tasks");
-  search.forEach((item, value) => {
-    item.statusv == value;
+  const items = value.length ? [...value] : "aucune taches";
+  listeTaches.innerHTML = "";
+  items.forEach((item) => {
     const li = document.createElement("li");
     li.classList.add = "main__section__widgets__taches__lists-item";
     li.setAttribute("class", "main__section__widgets__taches__lists-item");
@@ -61,16 +57,24 @@ function displayTasks(value) {
     li.innerHTML =
       `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>` +
       li.innerHTML;
+
     listeTaches.appendChild(li);
+    // console.log({ listeTaches });
   });
 }
 
-// aVenir.addEventListener("click", function () {
-//   const value = aVenir.dataset.v;
-//   displayTasks(value);
-// });
+function gererBtnAdd(tabName) {
+  const taskNewbtn = document.getElementById("taskNewbtn");
+  if (tabName == "tab2") {
+    taskNewbtn.style.display = "none";
+  } else if (tabName == "tab3") {
+    taskNewbtn.style.display = "none";
+  } else {
+    taskNewbtn.style.display = "flex";
+  }
+}
 
-function openTab(event, tabName) {
+function openTab(event, tabName, id) {
   const tabContents = document.querySelectorAll(".tab-content");
   tabContents.forEach((content) => {
     content.classList.remove("active");
@@ -82,53 +86,33 @@ function openTab(event, tabName) {
   });
 
   event.currentTarget.classList.add("active");
-  document.getElementById(tabName).classList.add("active");
-  if (event) {
-    console.log(event);
+  // document.getElementById(tabName).classList.add("active");
+
+  gererBtnAdd(tabName);
+
+  switch (id) {
+    case 0:
+      // console.log({ id });
+      rechercheTache(id);
+
+      break;
+    case 1:
+      // console.log({ id });
+
+      rechercheTache(id);
+
+      break;
+    case 2:
+      rechercheTache(id);
+
+      break;
+    default:
+      break;
   }
 }
-
-//
-//   const li = document.createElement("li");
-//   li.classList.add = "main__section__widgets__taches__lists-item";
-//   li.setAttribute("class", "main__section__widgets__taches__lists-item");
-//   // li.textContent = result.titleTache;
-//   li.innerHTML =
-//     `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>` +
-//     li.innerHTML;
-//   listeTaches.appendChild(li);
-//   // result.forEach((item) => {
-//   //   const li = document.createElement("li");
-//   //   li.classList.add = "main__section__widgets__taches__lists-item";
-//   //   li.setAttribute("class", "main__section__widgets__taches__lists-item");
-//   //   li.textContent = item.titleTache;
-//   //   li.innerHTML =
-//   //     `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>` +
-//   //     li.innerHTML;
-//   //   listeTaches.appendChild(li);
-//   // });
-// }
-
-// shows tache
-
-// function showsTask() {
-//   const showstask = getFromLocalstorage("tasks");
-
-//   showstask.forEach((item) => {
-//     const li = document.createElement("li");
-//     li.classList.add = "main__section__widgets__taches__lists-item";
-//     li.setAttribute("class", "main__section__widgets__taches__lists-item");
-//     li.textContent = item.titleTache;
-//     li.innerHTML =
-//       `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>` +
-//       li.innerHTML;
-//     listeTaches.appendChild(li);
-//   });
-
-//   // console.log(showstask);
-// }
-// showsTask();
-// submit button
+document.addEventListener("DOMContentLoaded", function () {
+  rechercheTache(0);
+});
 newCreateTask.addEventListener("click", function () {
   mainSectionModal.style.display = "flex";
 });
@@ -184,8 +168,8 @@ addNewTask.addEventListener("submit", (e) => {
   e.preventDefault();
   try {
     const newDate = new Date();
-    const value = newDate.toDateString();
-    console.log(value);
+    const dateValue = newDate.toDateString();
+    // console.log(value);
 
     addTask(
       titleTache.value,
@@ -193,13 +177,14 @@ addNewTask.addEventListener("submit", (e) => {
       userValue.textContent,
       priorities.value,
       descriptions.value,
-      value,
-      statusv
+      dateValue,
+      statusv.value
     );
     titleTache.value = "";
     categories.value = "";
     priorities.value = "";
     descriptions.value = "";
+    statusv.value = "";
   } catch (error) {
     alert("veuillez remplir tout les champs");
   }

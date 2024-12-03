@@ -202,6 +202,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--gap-8);
+  width: 100%;
 }
 .main__section__widgets__head__lists {
   display: flex;
@@ -260,12 +261,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 24px;
+  padding: 20px;
 }
 .main__section__modal__container__form {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-24);
+  gap: var(--gap-16);
 }
 .main__section__modal__container__form__input {
   display: flex;
@@ -320,7 +321,7 @@ body {
 .main__section__widgets__taches__lists {
   display: flex;
   flex-direction: column;
-  padding: 32px 0;
+  padding: 16px 0;
 }
 .main__section__widgets__taches__lists-item {
   display: flex;
@@ -339,6 +340,8 @@ body {
 .tab-nav {
   display: flex;
   background-color: var(--bg-secondary);
+  width: 35%;
+  margin-bottom: 12px;
 }
 .tab-btn {
   background-color: var(--bg-secondary);
@@ -354,14 +357,4 @@ body {
 .tab-btn.active {
   background-color: var(--bg-primary);
   color: white;
-}
-
-/* tab content */
-.tab-content {
-  display: none;
-  padding: 20px;
-  border-top: none;
-}
-.tab-content.active {
-  display: block;
 }
