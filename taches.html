@@ -50,7 +50,7 @@
           </li>
           <li class="main__aside__lists__item">
             <img src="./assets/img/home.png" alt="icon menu" /><a
-              href="#"
+              href="./index.html"
               id="acceuil"
               >Accueil</a
             >
@@ -92,13 +92,116 @@
         <div class="main__section__widgets">
           <div class="main__section__widgets__body">
             <div class="main__section__widgets__body__menu">
-              <div class="main__section__widgets__body__menu__btn">
-                <button type="button">Ajouter Tâches</button>
-              </div>
+              <button
+                type="button"
+                class="main__section__widgets__body__menu-btn"
+              >
+                <img
+                  src="assets/img/icplusw.png"
+                  alt="plus"
+                  class="main__section__widgets__body__menu-img"
+                />Ajouter Tâches
+              </button>
+
               <ul class="main__section__widgets__body__menu__lists">
-                <li>Filtre</li>
-                <li>Tri</li>
-                <li></li>
+                <li
+                  class="main__setion__widgets__body__menu__lists_list"
+                  id="contenuMenuLists"
+                >
+                  <img src="./assets/img/list-filter.svg" alt="filter" />Filtre
+                  <div
+                    class="modal__menu__lists_filter"
+                    id="modal__menu__lists_filter"
+                  >
+                    <div class="contenu__menu__lists__filter">
+                      <div class="contenu__menu__lists__filter-head">
+                        <span class="contenu__menu__lists__filter-span"
+                          >Filtre</span
+                        >
+                        <span class="contenu__menu__lists__filter-eff"
+                          >Effacer</span
+                        >
+                      </div>
+                      <span class="contenu__menu__lists__filter-title"
+                        >Filtre rapide</span
+                      >
+                      <div class="contenu__menu__lists__filter__filtre__rapide">
+                        <ul
+                          class="contenu__menu__lists__filter__filtre__rapide-lists"
+                        >
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche non Términées
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche términées
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche cette sémaine
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="main__setion__widgets__body__menu__lists_list">
+                  <img src="./assets/img/arrow-down-up.svg" alt="arrow" /> Tri
+                  <div class="modal__menu__lists_filter__cat">
+                    <div class="contenu__menu__lists__filter">
+                      <div class="contenu__menu__lists__filter-head">
+                        <span class="contenu__menu__lists__filter-span"
+                          >Filtre</span
+                        >
+                        <span class="contenu__menu__lists__filter-eff"
+                          >Effacer</span
+                        >
+                      </div>
+
+                      <div class="contenu__menu__lists__filter__filtre__rapide">
+                        <ul
+                          class="contenu__menu__lists__filter__filtre__rapide-lists"
+                        >
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img src="assets/img/letcheck.png" alt="check" />
+                            Par Catégories
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img src="assets/img/letcheck.png" alt="check" />
+                            Par priorite
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="main__setion__widgets__body__menu__lists_list">
+                  <img src="./assets/img/group.svg" alt="" />
+                  Groupe
+                </li>
               </ul>
             </div>
           </div>
@@ -221,5 +324,6 @@
       </section>
     </main>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/modal.js"></script>
   </body>
 </html>

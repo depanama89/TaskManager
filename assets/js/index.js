@@ -22,12 +22,21 @@ const terminerID = document.getElementById("terminerID");
 const listMenu = document.querySelectorAll(
   ".main__section__widgets__head__lists-list"
 );
+const modalMenuLists = document.getElementById("modal__menu__lists_filter");
+const contenuMenuLists = document.getElementById("contenuMenuLists");
+const checkTaskFiltre = document.querySelector(
+  ".contenu__menu__lists__filter__filtre__rapide-lists"
+);
+console.log({ checkTaskFiltre });
 
 statusv = 0;
+
 closeForm.addEventListener("click", function (e) {
   mainSectionModal.style.display = "none";
 });
+
 // verification de l'existance de localstorage
+
 function getFromLocalstorage(key, defaultValue = []) {
   if (JSON.parse(localStorage.getItem(key)) == null) {
     return defaultValue;
@@ -46,6 +55,8 @@ function rechercheTache(value) {
   displayTasks(findItems);
 }
 
+// fonction pour afficher les taches
+
 function displayTasks(value) {
   const items = value.length ? [...value] : "aucune taches";
   listeTaches.innerHTML = "";
@@ -59,9 +70,10 @@ function displayTasks(value) {
       li.innerHTML;
 
     listeTaches.appendChild(li);
-    // console.log({ listeTaches });
   });
 }
+
+// affichage du button de creation de la tâche
 
 function gererBtnAdd(tabName) {
   const taskNewbtn = document.getElementById("taskNewbtn");
@@ -110,20 +122,47 @@ function openTab(event, tabName, id) {
       break;
   }
 }
+
+// les ecouteurs de l'application
+checkTaskFiltre.addEventListener("click", checkTask);
+
+// modal filtre
+
+contenuMenuLists.addEventListener("click", function () {
+  modalMenuLists.style.display = "block";
+});
+
+// window.addEventListener("click", (e) => {
+//   console.log("test");
+//   if (e.target == modalMenuLists) {
+//     modalMenuLists.style.display = "none";
+//   }
+// });
+window.onclick = function (e) {
+  if (e.target == modalMenuLists) {
+    modalMenuLists.style.display = "none";
+  }
+};
+
+// loading page
+
 document.addEventListener("DOMContentLoaded", function () {
   rechercheTache(0);
 });
+
 newCreateTask.addEventListener("click", function () {
   mainSectionModal.style.display = "flex";
 });
 
 //affichage le modal du formulaire
-taskNewbtn.addEventListener("click", function () {
-  mainSectionModal.style.display = "flex";
-});
-acceuil.addEventListener("click", function () {
-  console.log("test");
-});
+try {
+  taskNewbtn.addEventListener("click", function () {
+    mainSectionModal.style.display = "flex";
+  });
+  acceuil.addEventListener("click", function () {
+    console.log("test");
+  });
+} catch (error) {}
 
 addNewcategory.addEventListener("click", () => {
   document.getElementById("modalCategory").style.display = "block";
@@ -134,6 +173,22 @@ window.addEventListener("click", (e) => {
     categorieModal.style.display = "none";
   }
 });
+
+function checkTask(e) {
+  if (e.target.tagName == "LI") {
+    const clickedElement = e.target;
+    if (clickedElement.classList.contains("checked")) {
+      clickedElement.classList.remove("checked");
+      clickedElement.firstElementChild.parentNode.removeChild(
+        clickedElement.firstElementChild
+      );
+    } else {
+      clickedElement.classList.add("checked");
+      const svgIcon = `<span><svg viewBox="0 0 24 24" width="24" height="24" fill="#1a73e8"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></span>`;
+      clickedElement.insertAdjacentHTML("afterbegin", svgIcon);
+    }
+  }
+}
 
 // function add
 function addTask(
