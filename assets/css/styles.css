@@ -445,3 +445,38 @@ body {
   gap: 0.5rem;
   align-items: center;
 }
+
+/* table */
+
+.contenuBody {
+  width: 100%;
+}
+th,
+td {
+  border: 1px solid #ddd;
+}
+.table {
+  width: 100%;
+  /* margin: 20px auto; */
+  border: 1px solid var(--bg-secondary);
+  border-collapse: collapse;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  color: var(--bg-primary);
+}
+.cellTable {
+  padding: 10px;
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 25px;
+}
+.celltd {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  font-size: 0.7rem;
+}
+tr:hover {
+  background-color: #3d3e40;
+  color: #fff;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}

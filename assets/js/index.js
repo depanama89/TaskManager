@@ -15,6 +15,7 @@ const newCreateTask = document.getElementById("newCreateTask");
 const addNewcategory = document.getElementById("addNewcategory");
 const categorieModal = document.getElementById("modalCategory");
 const listeTaches = document.getElementById("listTaches");
+const listeTachesN = document.getElementById("listeTachesN");
 const taskNewbtn = document.getElementById("taskNewbtn");
 const aVenir = document.getElementById("aVenirID");
 const eRetardID = document.getElementById("eRetardID");
@@ -27,10 +28,12 @@ const contenuMenuLists = document.getElementById("contenuMenuLists");
 const checkTaskFiltre = document.querySelector(
   ".contenu__menu__lists__filter__filtre__rapide-lists"
 );
-console.log({ checkTaskFiltre });
+const newTacheRowRef = document.querySelector("#tacheRowRef");
+const tbody = document.getElementById("tbody");
+// console.log({ checkTaskFiltre });
 
 statusv = 0;
-
+let html = "";
 closeForm.addEventListener("click", function (e) {
   mainSectionModal.style.display = "none";
 });
@@ -49,13 +52,13 @@ function getFromLocalstorage(key, defaultValue = []) {
 
 function rechercheTache(value) {
   const tasks = getFromLocalstorage("tasks");
-  // let findItems = [];
+
   const findItems = tasks.filter((tache) => tache.statusv == value);
 
   displayTasks(findItems);
 }
 
-// fonction pour afficher les taches
+// fonction pour afficher les taches pages index
 
 function displayTasks(value) {
   const items = value.length ? [...value] : "aucune taches";
@@ -98,7 +101,6 @@ function openTab(event, tabName, id) {
   });
 
   event.currentTarget.classList.add("active");
-  // document.getElementById(tabName).classList.add("active");
 
   gererBtnAdd(tabName);
 
@@ -148,6 +150,7 @@ window.onclick = function (e) {
 
 document.addEventListener("DOMContentLoaded", function () {
   rechercheTache(0);
+  filterTask([0, 1, 2]);
 });
 
 newCreateTask.addEventListener("click", function () {
@@ -174,6 +177,53 @@ window.addEventListener("click", (e) => {
   }
 });
 
+//function de filtrage de taches non termine
+
+function filterTask(statusp) {
+  const localStorageTasks = getFromLocalstorage("tasks");
+  const filterItems = localStorageTasks.filter((item) => {
+    const status = Number(item.statusv);
+    return statusp.includes(status);
+  });
+
+  console.log({ filterItems });
+  // listeTachesN.innerHTML = "";
+  html.innerHTML = "";
+  filterItems.forEach((item) => {
+    let values = "";
+    if (item.statusv == 0) {
+      values = "A venir";
+    } else if (item.statusv == 1) {
+      values = "En retard";
+    } else {
+      values = "Terminer";
+    }
+    html += `<tr>`;
+    html += `<td  class="celltd">${item.titleTache}</td>`;
+    html += `<td class="celltd">${item.newDate}</td>`;
+    html += `<td class="celltd">${item.userValue}</td>`;
+    html += `<td class="celltd">${item.priorities}</td>`;
+    html += `<td class="celltd">${values}</td>`;
+    html += `</tr>`;
+    // let data = [
+    //   item.titleTache,
+    //   item.newDate,
+    //   item.userValue,
+    //   item.priorities,
+    //   item.statusv,
+    // ];
+    // console.log({ data });
+    // const newTacheRow = newTacheRowRef.cloneNode(true);
+    // newTacheRow.removeAttribute("style");
+    // newTacheRow.removeAttribute("id");
+    // const fields = newTacheRow.querySelector(".data-cell");
+    // fields.forEach((field, idx) => {
+    //   field.innerHTML = data[idx];
+    // });
+    tbody.innerHTML = html;
+  });
+}
+
 function checkTask(e) {
   if (e.target.tagName == "LI") {
     const clickedElement = e.target;
@@ -186,6 +236,27 @@ function checkTask(e) {
       clickedElement.classList.add("checked");
       const svgIcon = `<span><svg viewBox="0 0 24 24" width="24" height="24" fill="#1a73e8"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></span>`;
       clickedElement.insertAdjacentHTML("afterbegin", svgIcon);
+    }
+
+    const dataset = clickedElement.dataset.id;
+    // switch (dataset) {
+    //   case dataset == 10:
+    //     const statusp = [0, 1];
+    //     filterTask(statusp);
+    //     break;
+    //   case 2:
+    //     const statuspx = 2;
+    //     filterTask(statusp);
+    //     break;
+    //   default:
+    //     break;
+    // }
+    if (dataset == 10) {
+      const statusp = [0, 1];
+      filterTask(statusp);
+    } else {
+      const statusp = [2];
+      filterTask(statusp);
     }
   }
 }
