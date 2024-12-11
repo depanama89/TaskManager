@@ -50,14 +50,13 @@
           </li>
           <li class="main__aside__lists__item">
             <img src="./assets/img/home.png" alt="icon menu" /><a
-              href="#"
+              href="./index.html"
               id="acceuil"
               >Accueil</a
             >
           </li>
           <li class="main__aside__lists__item">
-            <img src="./assets/img/check.png" alt="icon menu" /><a
-              href="./taches.html"
+            <img src="./assets/img/check.png" alt="icon menu" /><a href="#"
               >Mes tâches</a
             >
           </li>
@@ -88,111 +87,147 @@
         </div>
       </aside>
       <section class="main__section">
-        <h1 class="main__section-h1">Acceuil</h1>
-        <div class="main__section__nav">
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Tâches Prioritaire</span
-            >
-          </div>
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Tâches Términées</span
-            >
-          </div>
-          <div class="main__section__nav__taches">
-            <span class="main__section__nav__taches-nb">(5)</span
-            ><span class="main__section__nav__taches-tache"
-              >Collaborateurs</span
-            >
-          </div>
-        </div>
-        <div class="main__section__widgets">
-          <div class="main__section__widgets__head">
-            <img
-              src="assets/img/user-avatar.png"
-              alt="profil"
-              class="main__section__widgets__head-img"
-            />
-            <div class="main__section__widgets__body">
-              <h2 class="main__section__widgets__body-title">Mes Tâches</h2>
-              <div class="tab-nav">
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab1',id=0)"
-                  data-id="0"
-                >
-                  A venir
-                </button>
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab2',id=1)"
-                  data-id="1"
-                >
-                  En retard
-                </button>
-                <button
-                  class="tab-btn"
-                  onclick="openTab(event,'tab3',id=2)"
-                  data-id="2"
-                >
-                  Terminée(s)
-                </button>
-              </div>
-              <div class="tab-content" id="tab1">
-                <span class="main__section__widgets__taches-new" id="taskNewbtn"
-                  ><img
-                    src="./assets/img/icplus.png"
-                    alt="plus"
-                    class="main__section__widgets__taches-new-img"
-                  />Créer</span
-                >
-                <ul
-                  class="main__section__widgets__taches__lists"
-                  id="listTaches"
-                ></ul>
-              </div>
+        <h1 class="main__section-h1">Mes Tâches</h1>
 
-              <!-- <ul class="main__section__widgets__head__lists">
+        <div class="main__section__widgets">
+          <div class="main__section__widgets__body">
+            <div class="main__section__widgets__body__menu">
+              <button
+                type="button"
+                class="main__section__widgets__body__menu-btn"
+              >
+                <img
+                  src="assets/img/icplusw.png"
+                  alt="plus"
+                  class="main__section__widgets__body__menu-img"
+                />Ajouter Tâches
+              </button>
+
+              <ul class="main__section__widgets__body__menu__lists">
                 <li
-                  class="main__section__widgets__head__lists-list"
-                  id="aVenirID"
-                  data-v="0"
+                  class="main__setion__widgets__body__menu__lists_list"
+                  id="contenuMenuLists"
                 >
-                  A venir <span class="countNew"></span>
+                  <img src="./assets/img/list-filter.svg" alt="filter" />Filtre
+                  <div
+                    class="modal__menu__lists_filter"
+                    id="modal__menu__lists_filter"
+                  >
+                    <div class="contenu__menu__lists__filter">
+                      <div class="contenu__menu__lists__filter-head">
+                        <span class="contenu__menu__lists__filter-span"
+                          >Filtre</span
+                        >
+                        <span class="contenu__menu__lists__filter-eff"
+                          >Effacer</span
+                        >
+                      </div>
+                      <span class="contenu__menu__lists__filter-title"
+                        >Filtre rapide</span
+                      >
+                      <div class="contenu__menu__lists__filter__filtre__rapide">
+                        <ul
+                          class="contenu__menu__lists__filter__filtre__rapide-lists"
+                        >
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                            data-id="10"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche non Términées
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche términées
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img
+                              src="assets/img/letcheck.png"
+                              alt="check"
+                              class="check"
+                            />
+                            Tâche cette sémaine
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </li>
-                <li
-                  class="main__section__widgets__head__lists-list"
-                  id="eRetardID"
-                  data-re="1"
-                >
-                  En retard
+                <li class="main__setion__widgets__body__menu__lists_list">
+                  <img src="./assets/img/arrow-down-up.svg" alt="arrow" /> Tri
+                  <div class="modal__menu__lists_filter__cat">
+                    <div class="contenu__menu__lists__filter">
+                      <div class="contenu__menu__lists__filter-head">
+                        <span class="contenu__menu__lists__filter-span"
+                          >Filtre</span
+                        >
+                        <span class="contenu__menu__lists__filter-eff"
+                          >Effacer</span
+                        >
+                      </div>
+
+                      <div class="contenu__menu__lists__filter__filtre__rapide">
+                        <ul
+                          class="contenu__menu__lists__filter__filtre__rapide-lists"
+                        >
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img src="assets/img/letcheck.png" alt="check" />
+                            Par Catégories
+                          </li>
+                          <li
+                            class="contenu__menu__lists__filter__filtre__rapide-lists-list"
+                          >
+                            <img src="assets/img/letcheck.png" alt="check" />
+                            Par priorite
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </li>
-                <li
-                  class="main__section__widgets__head__lists-list"
-                  id="terminerID"
-                  data-end="2"
-                >
-                  Terminée
+                <li class="main__setion__widgets__body__menu__lists_list">
+                  <img src="./assets/img/group.svg" alt="" />
+                  Groupe
                 </li>
-              </ul> -->
+              </ul>
+            </div>
+            <div class="contenuBody">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="cellTable">Nom de la tâche</th>
+                    <th class="cellTable">Echeance</th>
+                    <th class="cellTable">Collaborateurs</th>
+                    <th class="cellTable">Priorite</th>
+                    <th class="cellTable">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                  <!-- <tr id="tacheRowRef">
+                    <td class="celltd data-cell">e</td>
+                    <td class="celltd data-cell">e</td>
+                    <td class="celltd data-cell">e</td>
+                    <td class="celltd data-cell">e</td>
+                    <td class="celltd data-cell">e</td>
+                  </tr> -->
+                </tbody>
+              </table>
             </div>
           </div>
-          <!-- <div class="main__section__widgets__taches">
-            <span class="main__section__widgets__taches-new" id="taskNewbtn"
-              ><img
-                src="./assets/img/icplus.png"
-                alt="plus"
-                class="main__section__widgets__taches-new-img"
-              />Créer</span
-            >
-            <ul
-              class="main__section__widgets__taches__lists"
-              id="listTaches"
-            ></ul>
-          </div> -->
         </div>
         <div class="main__section__modal" id="main__section__modal">
           <div class="main__section__modal__container">
@@ -312,5 +347,6 @@
       </section>
     </main>
     <script src="./assets/js/index.js"></script>
+    <!-- <script src="./assets/js/modal.js"></script> -->
   </body>
 </html>

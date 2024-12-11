@@ -1,0 +1,9 @@
+/* import styles page */
+@import url(styles.css);
+
+/* import variable page */
+
+@import url(variable.css);
+/* font-family: "Jaro", sans-serif; */
+
+@import url(responsive.css);
